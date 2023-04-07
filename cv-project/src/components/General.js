@@ -8,42 +8,54 @@ export default class General extends React.Component {
         phone: "",
     };
 
+    handleChange = (event) => {
+        this.setState((prevState) => {
+            return {
+                ...prevState,
+                [event.target.name]: event.target.value,
+            };
+        });
+        // console.log(this.state);
+        // console.log(event.target);
+        // console.log(event.target.value);
+    };
+
     render() {
         return (
             <div>
                 <fieldset>
                     <legend>General Information</legend>
-                    <label>First Name: </label>
+                    <label htmlFor="firstName">First Name: </label>
                     <input
                         type="text"
                         placeholder="First Name"
-                        // onChange={handleChange}
+                        onChange={this.handleChange}
                         name="firstName"
-                        // value={formData.firstName}
+                        value={this.state.firstName}
                     />
-                    <label>Last Name: </label>
+                    <label htmlFor="lastName">Last Name: </label>
                     <input
                         type="text"
                         placeholder="Last Name"
-                        // onChange={handleChange}
+                        onChange={this.handleChange}
                         name="lastName"
-                        // value={formData.lastName}
+                        value={this.state.lastName}
                     />
-                    <label>Email: </label>
+                    <label htmlFor="email">Email: </label>
                     <input
                         type="email"
                         placeholder="Email"
-                        // onChange={handleChange}
+                        onChange={this.handleChange}
                         name="email"
-                        // value={formData.email}
+                        value={this.state.email}
                     />
-                    <label>Phone number: </label>
+                    <label htmlFor="phone">Phone number: </label>
                     <input
                         type="phone"
                         placeholder="Phone"
-                        // onChange={handleChange}
+                        onChange={this.handleChange}
                         name="phone"
-                        // value={formData.email}
+                        value={this.state.phone}
                     />
                 </fieldset>
             </div>
