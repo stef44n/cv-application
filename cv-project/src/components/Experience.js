@@ -5,6 +5,20 @@ export default class Experience extends React.Component {
         companyName: "",
         positionTitle: "",
         mainTasks: "",
+        startDate: "",
+        endDate: "",
+    };
+
+    handleChange = (event) => {
+        this.setState((prevState) => {
+            return {
+                ...prevState,
+                [event.target.name]: event.target.value,
+            };
+        });
+        //     console.log(this.state);
+        //     console.log(event.target);
+        //     console.log(event.target.value);
     };
 
     render() {
@@ -13,48 +27,46 @@ export default class Experience extends React.Component {
                 <fieldset>
                     <h3>Experience Information</h3>
 
-                    <label>Company Name: </label>
+                    <label htmlFor="companyName">Company Name: </label>
                     <input
                         type="text"
                         placeholder="Company Name"
-                        // onChange={handleChange}
+                        onChange={this.handleChange}
                         name="companyName"
-                        // value={formData.firstName}
+                        value={this.state.companyName}
                     />
 
-                    <label>Position Title: </label>
+                    <label htmlFor="positionTitle">Position Title: </label>
                     <input
                         type="text"
                         placeholder="Position Title"
-                        // onChange={handleChange}
+                        onChange={this.handleChange}
                         name="positionTitle"
-                        // value={formData.firstName}
+                        value={this.state.positionTitle}
                     />
 
-                    <label>Main Tasks: </label>
+                    <label htmlFor="mainTasks">Main Tasks: </label>
                     <textarea
                         type="text"
                         placeholder="Main Tasks"
-                        // onChange={handleChange}
+                        onChange={this.handleChange}
                         name="mainTasks"
-                        // value={formData.firstName}
+                        value={this.state.mainTasks}
                     />
-                    <label>Start Date: </label>
+                    <label htmlFor="startDate">Start Date: </label>
                     <input
                         type="date"
-                        // placeholder="First Name"
-                        // onChange={handleChange}
+                        onChange={this.handleChange}
                         name="startDate"
-                        // value={formData.firstName}
+                        value={this.state.startDate}
                     />
 
-                    <label>End Date: </label>
+                    <label htmlFor="endDate">End Date: </label>
                     <input
                         type="date"
-                        // placeholder="First Name"
-                        // onChange={handleChange}
+                        onChange={this.handleChange}
                         name="endDate"
-                        // value={formData.firstName}
+                        value={this.state.endDate}
                     />
                 </fieldset>
             </div>
