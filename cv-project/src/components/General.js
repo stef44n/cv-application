@@ -1,12 +1,16 @@
 import React from "react";
 
 export default class General extends React.Component {
-    state = {
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-    };
+    constructor() {
+        super();
+
+        this.state = {
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+        };
+    }
 
     handleChange = (event) => {
         this.setState((prevState) => {
@@ -58,6 +62,15 @@ export default class General extends React.Component {
                         value={this.state.phone}
                     />
                 </fieldset>
+
+                {this.state.firstName && (
+                    <h1>THE FIRST NAME: {this.state.firstName}</h1>
+                )}
+                {this.state.lastName && (
+                    <h1>THE LAST NAME: {this.state.lastName}</h1>
+                )}
+                {this.state.email && <h1>THE EMAIL: {this.state.email}</h1>}
+                {this.state.phone && <h1>THE PHONE NUM: {this.state.phone}</h1>}
             </div>
         );
     }
