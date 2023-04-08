@@ -1,13 +1,17 @@
 import React from "react";
 
 export default class Experience extends React.Component {
-    state = {
-        companyName: "",
-        positionTitle: "",
-        mainTasks: "",
-        startDate: "",
-        endDate: "",
-    };
+    constructor() {
+        super();
+
+        this.state = {
+            companyName: "",
+            positionTitle: "",
+            mainTasks: "",
+            startDate: "",
+            endDate: "",
+        };
+    }
 
     handleChange = (event) => {
         this.setState((prevState) => {
@@ -69,6 +73,21 @@ export default class Experience extends React.Component {
                         value={this.state.endDate}
                     />
                 </fieldset>
+                {this.state.companyName && (
+                    <h1>THE COMPANY NAME: {this.state.companyName}</h1>
+                )}
+                {this.state.positionTitle && (
+                    <h1>THE TITLE: {this.state.positionTitle}</h1>
+                )}
+                {this.state.mainTasks && (
+                    <h1>THE MAIN TASKS: {this.state.mainTasks}</h1>
+                )}
+                {this.state.startDate && (
+                    <h1>THE START DATE: {this.state.startDate}</h1>
+                )}
+                {this.state.endDate && (
+                    <h1>THE END DATE: {this.state.endDate}</h1>
+                )}
             </div>
         );
     }
