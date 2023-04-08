@@ -1,12 +1,16 @@
 import React from "react";
 
 export default class Education extends React.Component {
-    state = {
-        schoolName: "",
-        degreeName: "",
-        startDate: "",
-        endDate: "",
-    };
+    constructor() {
+        super();
+
+        this.state = {
+            schoolName: "",
+            degreeName: "",
+            startDate: "",
+            endDate: "",
+        };
+    }
 
     handleChange = (event) => {
         this.setState((prevState) => {
@@ -60,6 +64,19 @@ export default class Education extends React.Component {
                         value={this.state.endDate}
                     />
                 </fieldset>
+
+                {this.state.schoolName && (
+                    <h1>THE SCHOOL NAME: {this.state.schoolName}</h1>
+                )}
+                {this.state.degreeName && (
+                    <h1>THE DEGREE NAME: {this.state.degreeName}</h1>
+                )}
+                {this.state.startDate && (
+                    <h1>THE START DATE: {this.state.startDate}</h1>
+                )}
+                {this.state.endDate && (
+                    <h1>THE END DATE: {this.state.endDate}</h1>
+                )}
             </div>
         );
     }
