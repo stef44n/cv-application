@@ -1,0 +1,10 @@
+textarea {
+    resize: vertical;
+    min-height: 50px;
+    max-height: 100px;
+}
+
+.render-experience {
+    height: fit-content;
+    min-height: 240px;
+}

@@ -1,0 +1,6 @@
+fieldset {
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 0 10px 0 10px;
+    box-shadow: 5px 5px gray;
+}
