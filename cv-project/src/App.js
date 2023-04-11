@@ -2,70 +2,45 @@ import React from "react";
 import General from "./components/General";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 // import uniqid from "uniqid";
+import "./styles/App.css";
 
 export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            submitted: false,
+        };
+    }
+
+    submitData = (event) => {
+        event.preventDefault();
+
+        this.setState((prevState) => {
+            return {
+                submitted: prevState.submitted ? false : true,
+            };
+        });
+        // return console.log("clicked", this.state);
+    };
+
     render() {
         return (
-            <div>
-                <form>
-                    <General />
+            <div className="page">
+                <Header />
+                <form className="whole-form" onSubmit={this.submitData}>
+                    <button>{this.state.submitted ? "EDIT" : "SUBMIT"}</button>
+                    <General isSubmitted={this.state.submitted} />
 
-                    <Education />
+                    <Education isSubmitted={this.state.submitted} />
 
-                    <Experience />
+                    <Experience isSubmitted={this.state.submitted} />
                 </form>
+                <Footer />
             </div>
         );
     }
 }
-
-// class App extends React.Component {
-//     constructor() {
-//         super();
-
-//         this.state = {
-//             task: { text: "", id: uniqid() },
-//             tasks: [],
-//         };
-//     }
-
-//     handleChange = (e) => {
-//         this.setState({
-//             task: {
-//                 text: e.target.value,
-//                 id: this.state.task.id,
-//             },
-//         });
-//     };
-
-//     onSubmitTask = (e) => {
-//         e.preventDefault();
-//         this.setState({
-//             tasks: this.state.tasks.concat(this.state.task),
-//             task: { text: "", id: uniqid() },
-//         });
-//     };
-
-//     render() {
-//         const { task, tasks } = this.state;
-
-//         return (
-//             <div className="App">
-//                 <form onSubmit={this.onSubmitTask}>
-//                     <label>Enter task</label>
-//                     <input
-//                         onChange={this.handleChange}
-//                         value={task.text}
-//                         type="text"
-//                         id="taskInput"
-//                     />
-//                     <button type="submit">Add task</button>
-//                 </form>
-//                 <Overview tasks={tasks} />
-//             </div>
-//         );
-//     }
-// }
-
-// export default App;
